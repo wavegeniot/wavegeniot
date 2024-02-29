@@ -1,0 +1,38 @@
+<div class="parent">
+    <div class="form-container">
+        <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" class="fr">
+            <h1 class="elem">
+                {{ registerNewUser ? 'Ingrese Sus Datos' : 'Bienvenido'}}
+            </h1>
+
+            <div class="fname-container" *ngIf="registerNewUser">
+                <label for='fname'>Nombre</label>
+                <input type="text" id="fname" formControlName="fname" name="fname" class="elem">
+            </div>
+
+            <div class='lname-container' *ngIf="registerNewUser">
+                <label for='lname'>Apellido</label>
+                <input type="text" id="lname" formControlName="lname" name="lname" class="elem">
+            </div>
+
+            <div class='email-container'>
+                <label for='email'>Email</label>
+                <input type="email" id="email" formControlName="email" name="email" class="elem">
+            </div>
+
+            <div class='password-container'>
+                <label for='password'>Password</label>
+                <input type="password" id="password" formControlName="password" name="password" class="elem">
+            </div>
+            <button type="submit" value="Ingresar" class="submit-btn elem button block" [disabled]="loading">
+                {{ loading ? 'loading' : registerNewUser ? 'Registar' : 'Ingresar' }}
+            </button>
+            <ul>
+                <li routerLink="/login" *ngIf="registerNewUser"><b>¿Ya tienes una cuenta?</b></li>
+                <li routerLink="/register" *ngIf="!registerNewUser"><b>¿Necesitas una cuenta?</b></li>
+            </ul>
+        </form>
+        <img
+            src="https://img.freepik.com/free-vector/fingerprint-concept-illustration_114360-3630.jpg?w=740&t=st=1690655121~exp=1690655721~hmac=a5de1b1e50d0513d9af30d378c665483c904dd89a6ca2eaae62986b10e3b5c85">
+    </div>
+</div>

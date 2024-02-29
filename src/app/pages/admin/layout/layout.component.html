@@ -1,0 +1,41 @@
+<div class="landing-page">
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Wave<b>Gen</b>-IoT</a>
+
+            <button (click)='signOut()'>Cerrar Sesion</button>
+        </div>
+    </header>
+    <div class="content">
+        <div class="container">
+            <div>
+                <label for="device">Seleccione un dispositivo</label>
+                <select name="device" id="device">
+                    <option *ngFor="let device of devices" [value]="device.id">
+                        {{ device.id}}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <label for="wave">Seleccione un tipo de señal</label>
+                <select name="wave" id="wave">
+                    <option *ngFor="let wave of waves">
+                        {{ wave.signal }}
+                    </option>
+                </select>
+            </div>
+
+            <div>
+                <label for="frequency">Frecuencia</label>
+                <input type="number">
+            </div> 
+            
+            <div>
+                <label for="amplitude">Amplitud</label>
+                <input type="number">
+            </div>
+
+            <button>Confirmar</button>
+        </div>
+    </div>
+</div>
